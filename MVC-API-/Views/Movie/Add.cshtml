@@ -1,0 +1,74 @@
+﻿@model Movie
+
+<style>
+
+    body{
+        background: linear-gradient(230deg, #1CB5E0 0%, #000851 100%)
+    }
+    .btn{
+        position:relative;
+        top: 10px;
+        background-color: navy;
+        color: white;
+        box-shadow: 0 0 4px 2px black;
+        transition: .3s
+    }
+    .btn:hover{
+        color: white;
+        background-color: navy;
+        box-shadow: 0 0 4px 2px #7cc5ff;
+    }
+
+    .back{
+        text-decoration: none;
+        position: relative;
+        left: 24.5%;
+        top: -20px;
+        background-color: navy;
+        color: white;
+        padding: 8px;
+        border-radius: 5px;
+        box-shadow: 0 0 4px 2px black;
+        transition:.3s
+    }
+    .back:hover{
+        color: white;
+        background-color: navy;
+        box-shadow: 0 0 4px 2px #7cc5ff;
+    }
+
+    label{
+        color:white;
+        font-family: fantasy;
+    }
+
+</style>
+
+<h1>Add Movie</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add" method="post">
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Director" class="control-label"></label>
+                <input asp-for="Director" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ReleaseYear" class="control-label"></label>
+                <input asp-for="ReleaseYear" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input class="btn" type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="back" asp-action="Index">Back To List</a>
+</div>

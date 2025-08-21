@@ -1,0 +1,74 @@
+﻿@model Movie
+
+<style>
+    body{
+        background: linear-gradient(230deg, #1CB5E0 0%, #000851 100%)
+    }
+    h2{
+        font-family: fantasy;
+        color: #ffffff;
+        text-shadow: 1px 3px 0px #02020c;
+    }
+
+    .back {
+        text-decoration: none;
+        position: relative;
+        background-color: navy;
+        color: white;
+        padding: 8px;
+        border-radius: 5px;
+        box-shadow: 0 0 4px 2px black;
+        transition: .3s
+    }
+
+        .back:hover {
+            color: white;
+            background-color: navy;
+            box-shadow: 0 0 4px 2px #7cc5ff;
+        }
+</style>
+
+<h2>About <span style="color: #f60000;text-shadow: 1px 5px 0px black;">@Model.Title</span></h2>
+<div style="padding-bottom:30px">
+    <div class="card shadow-sm border-0 rounded-3" style="max-width: 500px;">
+        <div class="card-body" style="box-shadow: 5px 6px 10px 1px #000000;">
+            @if (Model.Id == 1)
+            {
+                <img src="~/Images/End-Game.jpg" style="width:80px;position:absolute;left:75%" />
+            }
+            @if (Model.Id == 2)
+            {
+                <img src="~/Images/SpiderManNoWayHome.jpg" style="width:80px;position:absolute;left:75%" />
+            }
+            @if (Model.Id == 3)
+            {
+                <img src="~/Images/BatMan.jpg" style="width:80px;position:absolute;left:75%" />
+            }
+            @if (Model.Id == 4)
+            {
+                <img src="~/Images/IronMan.jpg" style="width:80px;position:absolute;left:75%" />
+            }
+            @if (Model.Id == 5)
+            {
+                <img src="~/Images/Doctor_Strange.jpg" style="width:80px;position:absolute;left:75%" />
+            }
+            @if (Model.Id == 6)
+            {
+                <img src="~/Images/BlackPanther.jpg" style="width:80px;position:absolute;left:75%" />
+            }
+            @if (Model.Id == 11)
+            {
+                <img src="~/Images/ANT-MANr.jpg" style="width:80px;position:absolute;left:75%" />
+            }
+            @if (Model.Id == 12)
+            {
+                <img src="~/Images/Captain MArvel.jpg" style="width:90px;position:absolute;left:75%" />
+            }
+            <p class="card-text mb-1"><strong>ID:</strong> @Model.Id</p>
+            <h5 class="card-title fw-bold">@Model.Title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Directed by: @Model.Director</h6>
+            <p class="card-text mb-1"><strong>Release Year: </strong> @Model.ReleaseYear</p>
+        </div>
+    </div>
+</div>
+<a class="back" asp-controller="Movie" asp-action="Index">Back To List</a></td>

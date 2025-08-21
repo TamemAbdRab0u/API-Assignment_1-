@@ -1,0 +1,65 @@
+﻿@model List<Movie>
+
+<style>
+     body{
+         background: linear-gradient(230deg, #1CB5E0 0%, #000851 100%)
+     }
+    /*  tr{
+         color:white;
+     }
+
+     th {
+         font-family: fantasy;
+         text-shadow: 1px 3px black;
+         letter-spacing: 1px;
+     } */
+     .detail{
+         text-decoration: none;
+         padding: 2px;
+         border-radius: 5px;
+         background-color: navy;
+         color: white;
+         box-shadow: 0 0 4px 2px black;
+         transition: .3s
+     }
+     .detail:hover{
+        color: white;
+        background-color: navy;
+        box-shadow: 0 0 4px 2px #7cc5ff;
+     }
+
+     h2 {
+         font-family: fantasy;
+         color: #ffffff;
+         text-shadow: 1px 3px 0px #02020c;
+     }
+
+     .MovieCard {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: flex-start;
+     }
+
+</style>
+
+<h2>Movie List</h2>
+
+<a class="detail" style="position:relative;left:90%;padding:7px;top:-15px" asp-controller="Movie" asp-action="Add">Add New Movie</a>
+
+<div class="MovieCard">
+    @foreach (var item in Model)
+    {
+        <div class="card m-2 shadow-sm" style="width: 23%;">
+            <div class="card-body">
+                <h5 class="card-title">@item.Title</h5>
+                <p class="card-text">
+                    <strong>Directed By: </strong> @item.Director <br />
+                    <strong>Release Year: </strong> @item.ReleaseYear
+                </p>
+                <a asp-action="GetById" asp-route-id="@item.Id" class="btn btn-primary btn-sm" style="background-color:#203d69;border-color:#203d69">Details</a>
+                <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm" style="color: #ffffff;background-color: #217331;border-color: #39953d;">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+            </div>
+        </div>
+    }
+</div>
